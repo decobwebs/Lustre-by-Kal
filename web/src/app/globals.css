@@ -164,16 +164,20 @@
   .rise-4 { animation-delay: 0.24s; }
   @keyframes rise { from { transform: translateY(14px); opacity: 0.35; } to { transform: none; opacity: 1; } }
 
-  /* Toast */
+  /* Toast. Fixed width so text wraps as a normal sentence rather than
+     shrinking to its widest word (the classic flex min-width:auto trap),
+     and a moderate corner radius so a two-line message is a rounded bar,
+     never a circle. */
   .toast {
     position: fixed; left: 50%; bottom: 24px; z-index: 60; transform: translateX(-50%);
-    display: flex; align-items: center; gap: 1rem; max-width: calc(100vw - 32px);
-    background: var(--color-night); color: var(--color-night-text); border-radius: 999px;
+    display: flex; align-items: center; gap: 1rem; width: max-content; max-width: min(94vw, 26rem);
+    background: var(--color-night); color: var(--color-night-text); border-radius: 16px;
     padding: 0.7rem 0.8rem 0.7rem 1.3rem; box-shadow: 0 12px 30px rgb(31 24 18 / 0.25);
     animation: toast-in 0.25s ease both;
   }
-  .toast a { color: var(--color-bronze-light); font-weight: 700; white-space: nowrap; padding: 0.35rem 0.7rem; border-radius: 999px; }
-  .toast a:hover { background: var(--color-night-raised); }
+  .toast-message { flex: 1 1 auto; min-width: 0; text-align: left; }
+  .toast-action { flex: none; color: var(--color-bronze-light); font-weight: 700; white-space: nowrap; padding: 0.35rem 0.7rem; border-radius: 999px; }
+  .toast-action:hover { background: var(--color-night-raised); }
   @keyframes toast-in { from { transform: translate(-50%, 10px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
 
   .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--color-ink); color: #fff; padding: 0.6rem 1rem; border-radius: 6px; }

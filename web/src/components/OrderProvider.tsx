@@ -102,9 +102,9 @@ export function OrderProvider({ children }: { children: ReactNode }) {
       <div aria-live="polite" role="status">
         {toast && (
           <div className="toast" key={toast.id}>
-            <span>{toast.message}</span>
+            <span className="toast-message">{toast.message}</span>
             {toast.action && (
-              <Link href={toast.action.href} onClick={() => setToast(null)}>
+              <Link href={toast.action.href} onClick={() => setToast(null)} className="toast-action">
                 {toast.action.label}
               </Link>
             )}
