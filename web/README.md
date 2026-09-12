@@ -56,6 +56,20 @@ npm run dev                  # http://localhost:3000
 
 `POST /api/enquiry` does the same for the contact form. Both endpoints have a hidden bot field, a minimum fill time and a per-address rate limit.
 
+## Order lookup — `/admin`
+
+There is no order database. An order's own message — the WhatsApp text or the
+email — already lists every reference and quantity, so `/admin` just re-parses
+whatever you paste against the catalogue that is already in the site: full
+hamper contents, photos, and the total. Nothing is stored or sent anywhere.
+
+Paste the whole message, or just the short form (`LBK-GL01:12, LBK-RL01x2`) if
+that's all you have. The page is excluded from search engines and has no link
+in the navigation, but it is **not password-protected** — anyone with the
+`/admin` URL can open it. That's fine for reading back an order (nothing
+secret is shown beyond what the customer already sent), but don't put anything
+more sensitive on this page without adding a login first.
+
 ## Going live
 
 1. Register `lustrebykal.com` and create the `admin@` mailbox.

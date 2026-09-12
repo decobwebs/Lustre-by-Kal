@@ -12,7 +12,8 @@
     "check:launch": "node scripts/check-launch.mjs",
     "test:flow": "python tests/order-flow.py",
     "test:launch-state": "python tests/launch-state.py",
-    "test:motion": "python tests/motion.py"
+    "test:motion": "python tests/motion.py",
+    "test:admin": "python tests/admin.py"
   },
   "dependencies": {
     "next": "16.3.4",

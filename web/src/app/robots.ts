@@ -4,7 +4,7 @@ import { site } from "@/content/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/", disallow: ["/api/", "/order", "/offline"] },
+    rules: { userAgent: "*", allow: "/", disallow: ["/api/", "/order", "/offline", "/admin"] },
     sitemap: `${site.url}/sitemap.xml`,
     host: site.url,
   };
