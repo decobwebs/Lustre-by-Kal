@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lustre By Kal | Thoughtfully Gifted. Beautifully Remembered.</title>
+
+    <meta name="description"
+        content="Lustre By Kal creates premium and bespoke gifting experiences for individuals, executives, corporations and special occasions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        :root {
+            --ivory: #f8f5ef;
+            --cream: #f2eadf;
+            --sand: #dfd0bd;
+            --taupe: #b7a28d;
+            --rose: #d9b8b1;
+            --sage: #b8c0ad;
+            --charcoal: #292725;
+            --brown: #66574c;
+            --white: #ffffff;
+            --gold: #b49a6c;
+
+            --serif: "Playfair Display", Georgia, serif;
+            --sans: "DM Sans", Arial, sans-serif;
+
+            --container: 1180px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--ivory);
+            color: var(--charcoal);
+            font-family: var(--sans);
+            line-height: 1.6;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(92%, var(--container));
+            margin: auto;
+        }
+
+        .serif {
+            font-family: var(--serif);
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--brown);
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 62px);
+            font-weight: 500;
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+
+        .section-copy {
+            max-width: 650px;
+            color: #70665e;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 27px;
+            border: 1px solid var(--charcoal);
+            background: var(--charcoal);
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--charcoal);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--charcoal);
+        }
+
+        .btn-outline:hover {
+            background: var(--charcoal);
+            color: white;
+        }
+
+
+        /* =========================================================
+           ANNOUNCEMENT
+        ========================================================= */
+
+        .announcement {
+            background: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(248, 245, 239, .94);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(41, 39, 37, .08);
+        }
+
+        .nav {
+            min-height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 27px;
+            letter-spacing: -1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            font-size: 11px;
+            font-family: var(--sans);
+            display: block;
+            text-align: center;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: -4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--charcoal);
+            transition: .3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 12px 20px;
+            font-size: 10.5px;
+        }
+
+        .mobile-menu {
+            display: none;
+            border: 0;
+            background: none;
+            font-size: 25px;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 760px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--cream);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px max(5vw, 30px);
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(52px, 6vw, 88px);
+            line-height: .98;
+            font-weight: 500;
+            letter-spacing: -3px;
+            max-width: 650px;
+        }
+
+        .hero h1 em {
+            color: var(--taupe);
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 520px;
+            color: #6d645c;
+            margin: 28px 0 35px;
+            font-size: 16px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            min-height: 760px;
+            background:
+                linear-gradient(rgba(0, 0, 0, .03), rgba(0, 0, 0, .03)),
+                url("https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1400&q=85") center/cover;
+        }
+
+
+        /* =========================================================
+           INTRO
+        ========================================================= */
+
+        .intro {
+            padding: 125px 0;
+            text-align: center;
+        }
+
+        .intro .section-copy {
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+
+        /* =========================================================
+           HOW IT WORKS
+        ========================================================= */
+
+        .process {
+            background: #eee5da;
+            padding: 100px 0;
+        }
+
+        .process-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid rgba(41, 39, 37, .2);
+        }
+
+        .step {
+            padding: 35px 25px 20px 0;
+            border-right: 1px solid rgba(41, 39, 37, .2);
+        }
+
+        .step:not(:first-child) {
+            padding-left: 25px;
+        }
+
+        .step:last-child {
+            border-right: 0;
+        }
+
+        .step-number {
+            font-family: var(--serif);
+            font-size: 36px;
+            color: var(--taupe);
+            margin-bottom: 25px;
+        }
+
+        .step h3 {
+            font-family: var(--serif);
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: #70665e;
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services {
+            padding: 120px 0;
+        }
+
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 40px;
+            margin-bottom: 55px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+            background: var(--sand);
+        }
+
+        .service-card img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            padding: 30px;
+            color: white;
+            background: linear-gradient(transparent 30%,
+                    rgba(0, 0, 0, .7));
+        }
+
+        .service-overlay h3 {
+            font-family: var(--serif);
+            font-size: 29px;
+            margin-bottom: 5px;
+        }
+
+        .service-overlay p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .85);
+        }
+
+
+        /* =========================================================
+           CORPORATE
+        ========================================================= */
+
+        .corporate {
+            background: var(--charcoal);
+            color: white;
+            padding: 120px 0;
+        }
+
+        .corporate-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .corporate .eyebrow {
+            color: var(--rose);
+        }
+
+        .corporate .section-title {
+            color: white;
+        }
+
+        .corporate .section-copy {
+            color: #bcb6af;
+        }
+
+        .corporate-list {
+            margin: 35px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px;
+            list-style: none;
+        }
+
+        .corporate-list li {
+            border-bottom: 1px solid rgba(255, 255, 255, .15);
+            padding-bottom: 10px;
+            color: #d7d0c8;
+            font-size: 14px;
+        }
+
+        .corporate-list li::before {
+            content: "✦";
+            color: var(--rose);
+            margin-right: 10px;
+        }
+
+        .corporate-image {
+            height: 600px;
+            background:
+                url("https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=85") center/cover;
+        }
+
+
+        /* =========================================================
+           GIFT COLLECTIONS
+        ========================================================= */
+
+        .collections {
+            padding: 120px 0;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 55px;
+        }
+
+        .collection-card {
+            height: 330px;
+            background: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-card img {
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .collection-name {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, .9);
+            padding: 15px;
+            text-align: center;
+            font-family: var(--serif);
+            font-size: 21px;
+        }
+
+
+        /* =========================================================
+           BESPOKE
+        ========================================================= */
+
+        .bespoke {
+            background: #e4d8cd;
+            padding: 120px 0;
+        }
+
+        .bespoke-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .bespoke-box .section-copy {
+            margin: auto auto 35px;
+        }
+
+
+        /* =========================================================
+           LUXURY EXPERIENCE
+        ========================================================= */
+
+        .experience {
+            padding: 120px 0;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .experience-image {
+            height: 620px;
+            background:
+                url("https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1200&q=85") center/cover;
+        }
+
+        .experience-points {
+            margin-top: 35px;
+        }
+
+        .experience-point {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd2c6;
+        }
+
+        .experience-point span {
+            font-family: var(--serif);
+            color: var(--taupe);
+            font-size: 24px;
+        }
+
+        .experience-point h4 {
+            margin-bottom: 3px;
+        }
+
+        .experience-point p {
+            color: #777069;
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           CORPORATE CONCIERGE
+        ========================================================= */
+
+        .concierge {
+            background: var(--sage);
+            padding: 100px 0;
+        }
+
+        .concierge-inner {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .concierge-inner .section-copy {
+            margin: auto auto 35px;
+        }
+
+
+        /* =========================================================
+           ENQUIRY FORM
+        ========================================================= */
+
+        .enquiry {
+            padding: 120px 0;
+        }
+
+        .enquiry-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 90px;
+        }
+
+        .enquiry-info-block {
+            margin-top: 35px;
+        }
+
+        .enquiry-info-item {
+            padding: 18px 0;
+            border-bottom: 1px solid #e4dacb;
+        }
+
+        .enquiry-info-item h4 {
+            font-family: var(--serif);
+            font-size: 18px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .enquiry-info-item p {
+            color: #70665e;
+            font-size: 14px;
+        }
+
+        .form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form input,
+        .form select,
+        .form textarea {
+            width: 100%;
+            border: 1px solid #d5c9bd;
+            background: white;
+            padding: 15px;
+            outline: none;
+            color: var(--charcoal);
+        }
+
+        .form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form input:focus,
+        .form select:focus,
+        .form textarea:focus {
+            border-color: var(--charcoal);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #8a8078;
+        }
+
+        .form-success {
+            display: none;
+            background: var(--charcoal);
+            color: white;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form.hide {
+            display: none;
+        }
+
+
+        /* =========================================================
+           TESTIMONIAL
+        ========================================================= */
+
+        .testimonial {
+            background: var(--cream);
+            padding: 110px 0;
+            text-align: center;
+        }
+
+        .quote {
+            max-width: 850px;
+            margin: auto;
+            font-family: var(--serif);
+            font-size: clamp(28px, 4vw, 48px);
+            line-height: 1.3;
+        }
+
+        .quote-author {
+            margin-top: 25px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #201e1c;
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 70px;
+        }
+
+        footer .logo {
+            color: white;
+        }
+
+        .footer-about {
+            color: #aaa39c;
+            max-width: 330px;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .footer-social a:hover {
+            border-color: white;
+        }
+
+        .footer-column h4 {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #aaa39c;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, .12);
+            color: #85807b;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+
+        /* =========================================================
+           WHATSAPP
+        ========================================================= */
+
+        .whatsapp {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25231f;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .2);
+            font-size: 22px;
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-5px);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 82px;
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                background: var(--ivory);
+                padding: 25px 5%;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                min-height: 620px;
+            }
+
+            .hero-image {
+                min-height: 500px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .step {
+                border-bottom: 1px solid rgba(41, 39, 37, .2);
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .corporate-layout,
+            .experience-grid,
+            .enquiry-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .experience-image {
+                order: -1;
+                height: 380px;
+            }
+
+            .corporate-image {
+                order: -1;
+                height: 380px;
+            }
+
+            .corporate-list {
+                grid-template-columns: 1fr;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-header,
+            .services-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .copyright {
+                flex-direction: column;
+            }
+        }
+
+        @media(max-width: 560px) {
+
+            .steps,
+            .service-grid,
+            .collection-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                border-right: 0;
+                border-bottom: 1px solid rgba(41, 39, 37, .2);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 60px 6vw;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+         ANNOUNCEMENT
+    ============================================================= -->
+    <div class="announcement">
+        COMPLIMENTARY PERSONALISATION ON ALL ORDERS OVER ₦150,000 — ENDS THIS FRIDAY
+    </div>
+
+    <!-- ============================================================
+         HEADER / NAV
+    ============================================================= -->
+    <header>
+        <div class="container nav">
+            <a href="#top" class="logo">Lustre<span>By Kal</span></a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#services">Gifting</a>
+                <a href="#corporate">Corporate</a>
+                <a href="#collections">Collections</a>
+                <a href="#bespoke">Bespoke</a>
+                <a href="#experience">Our Process</a>
+                <a href="#enquiry">Contact</a>
+                <a href="#enquiry" class="btn nav-cta">Start An Enquiry</a>
+            </nav>
+
+            <button class="mobile-menu" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         HERO
+    ============================================================= -->
+    <section class="hero" id="top">
+        <div class="hero-content">
+            <h1>Gifting, <em>elevated</em><br>to an art form.</h1>
+            <p class="hero-description">
+                Lustre By Kal designs premium and bespoke gifting experiences —
+                for the people you love, the clients you value, and the milestones
+                worth remembering. Every box is curated, personalised, and delivered
+                with care.
+            </p>
+            <div class="hero-buttons">
+                <a href="#collections" class="btn">Explore Collections</a>
+                <a href="#corporate" class="btn btn-outline">Corporate Gifting</a>
+            </div>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <!-- ============================================================
+         INTRO
+    ============================================================= -->
+    <section class="intro">
+        <div class="container">
+            <div class="eyebrow">The Lustre Standard</div>
+            <p class="section-copy">
+                A gift is a message. We help you say it properly — sourcing considered
+                pieces, hand-finishing every detail, and writing the note you didn't
+                have time to. From a single thoughtful box to a thousand-piece corporate
+                rollout, it's handled with the same care.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         HOW IT WORKS
+    ============================================================= -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="process-header">
+                <div>
+                    <div class="eyebrow">How It Works</div>
+                    <h2 class="section-title">From brief<br>to beautifully boxed.</h2>
+                </div>
+                <p class="section-copy">Four steps stand between an idea and a gift someone will remember receiving.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Consult</h3>
+                    <p>Tell us the occasion, the recipient, and the budget — we'll take it from there.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Curate</h3>
+                    <p>We select pieces from trusted artisans and brands to match the brief and the moment.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Personalise</h3>
+                    <p>Monograms, handwritten notes, and packaging finished in your chosen palette.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Deliver</h3>
+                    <p>White-glove delivery, tracked and timed — locally or shipped nationwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES
+    ============================================================= -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <div>
+                    <div class="eyebrow">What We Do</div>
+                    <h2 class="section-title">Three ways to gift well.</h2>
+                </div>
+                <p class="section-copy">Whichever the occasion, it starts with the same question: what should this gift
+                    make someone feel?</p>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=800&h=1000&q=85"
+                        alt="Personal gifting box, ribbon-tied">
+                    <div class="service-overlay">
+                        <h3>Personal Gifting</h3>
+                        <p>Birthdays, anniversaries, thank-yous, and everything worth marking.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&h=1000&q=85"
+                        alt="Executive corporate gifting set">
+                    <div class="service-overlay">
+                        <h3>Executive & Corporate</h3>
+                        <p>Client appreciation, onboarding kits, and milestone recognition at scale.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&h=1000&q=85"
+                        alt="Wedding and event favours">
+                    <div class="service-overlay">
+                        <h3>Weddings & Events</h3>
+                        <p>Favours and welcome boxes designed to match your event's story.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CORPORATE
+    ============================================================= -->
+    <section class="corporate" id="corporate">
+        <div class="container corporate-layout">
+            <div>
+                <div class="eyebrow">Corporate Gifting</div>
+                <h2 class="section-title">Gifting that represents<br>your brand well.</h2>
+                <p class="section-copy">
+                    We work with HR teams, executive assistants, and founders to design gifting
+                    programmes that scale — without losing the personal touch that makes a gift
+                    worth giving in the first place.
+                </p>
+
+                <ul class="corporate-list">
+                    <li>Client appreciation gifts</li>
+                    <li>Employee milestone boxes</li>
+                    <li>New-hire welcome kits</li>
+                    <li>Executive hampers</li>
+                    <li>Event & conference favours</li>
+                    <li>Festive & year-end gifting</li>
+                    <li>Branded packaging</li>
+                    <li>Bulk order fulfilment</li>
+                </ul>
+
+                <a href="#enquiry" class="btn btn-outline" style="border-color:white;">Request A Corporate Quote</a>
+            </div>
+            <div class="corporate-image"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         GIFT COLLECTIONS
+    ============================================================= -->
+    <section class="collections" id="collections">
+        <div class="container">
+            <div class="eyebrow">Signature Collections</div>
+            <h2 class="section-title">Curated. Not generic.</h2>
+            <p class="section-copy">Four edits, each built around a different mood — pick a starting point, then make it
+                yours.</p>
+
+            <div class="collection-grid">
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=500&h=660&q=85"
+                        alt="The Kal Edit collection">
+                    <div class="collection-name">The Kal Edit</div>
+                </div>
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=500&h=660&q=85"
+                        alt="Blush and Bloom collection">
+                    <div class="collection-name">Blush & Bloom</div>
+                </div>
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&h=660&q=85"
+                        alt="Noir Reserve collection">
+                    <div class="collection-name">Noir Reserve</div>
+                </div>
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=500&h=660&q=85&sat=-20"
+                        alt="New Beginnings collection">
+                    <div class="collection-name">New Beginnings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         BESPOKE
+    ============================================================= -->
+    <section class="bespoke" id="bespoke">
+        <div class="container bespoke-box">
+            <div class="eyebrow">Bespoke Gifting</div>
+            <h2 class="section-title">Can't find quite the right fit?<br>We'll build one.</h2>
+            <p class="section-copy">
+                Some gifts need to be designed from nothing — a colour palette, a
+                private joke, a company's brand guidelines. Our bespoke service starts
+                with a conversation and ends with something that couldn't have come
+                from anywhere else.
+            </p>
+            <a href="#enquiry" class="btn">Start A Bespoke Enquiry</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         LUXURY EXPERIENCE
+    ============================================================= -->
+    <section class="experience" id="experience">
+        <div class="container experience-grid">
+            <div class="experience-image"></div>
+            <div>
+                <div class="eyebrow">The Experience</div>
+                <h2 class="section-title">Every detail, considered.</h2>
+                <p class="section-copy">It's rarely one big thing that makes a gift feel luxurious — it's the
+                    accumulation of small ones done properly.</p>
+
+                <div class="experience-points">
+                    <div class="experience-point">
+                        <span>01</span>
+                        <div>
+                            <h4>Premium Sourcing</h4>
+                            <p>Pieces selected from artisans and brands we've vetted ourselves.</p>
+                        </div>
+                    </div>
+                    <div class="experience-point">
+                        <span>02</span>
+                        <div>
+                            <h4>Hand Finishing</h4>
+                            <p>Every box is wrapped, ribboned, and sealed by hand — not a production line.</p>
+                        </div>
+                    </div>
+                    <div class="experience-point">
+                        <span>03</span>
+                        <div>
+                            <h4>Personal Note Cards</h4>
+                            <p>Handwritten in ink, in your words or ours, on request.</p>
+                        </div>
+                    </div>
+                    <div class="experience-point">
+                        <span>04</span>
+                        <div>
+                            <h4>White-Glove Delivery</h4>
+                            <p>Tracked, timed, and handled with the same care as what's inside.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CORPORATE CONCIERGE
+    ============================================================= -->
+    <section class="concierge">
+        <div class="container concierge-inner">
+            <div class="eyebrow">Corporate Concierge</div>
+            <h2 class="section-title">A dedicated line for your business.</h2>
+            <p class="section-copy">
+                Corporate accounts get a named concierge, standing quotes for recurring
+                occasions, and priority turnaround during festive season — so gifting
+                stops being something your team has to think about twice.
+            </p>
+            <a href="#enquiry" class="btn">Speak To Our Concierge</a>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ENQUIRY FORM
+    ============================================================= -->
+    <section class="enquiry" id="enquiry">
+        <div class="container enquiry-grid">
+            <div>
+                <div class="eyebrow">Get In Touch</div>
+                <h2 class="section-title">Let's put<br>something together.</h2>
+                <p class="section-copy">Tell us what you're celebrating, or who you're trying to impress. We typically
+                    reply within one business day.</p>
+
+                <div class="enquiry-info-block">
+                    <div class="enquiry-info-item">
+                        <h4>Email</h4>
+                        <p>hello@lustrebykal.com</p>
+                    </div>
+                    <div class="enquiry-info-item">
+                        <h4>Phone / WhatsApp</h4>
+                        <p>+234 800 000 0000</p>
+                    </div>
+                    <div class="enquiry-info-item">
+                        <h4>Studio Hours</h4>
+                        <p>Monday – Saturday, 9am – 6pm WAT</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <form class="form" id="enquiryForm">
+                    <div class="form-row">
+                        <input type="text" name="name" placeholder="Full name" required>
+                        <input type="email" name="email" placeholder="Email address" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" name="phone" placeholder="Phone number">
+                        <select name="occasion" required>
+                            <option value="" disabled selected>Occasion</option>
+                            <option>Personal Gift</option>
+                            <option>Corporate Gifting</option>
+                            <option>Wedding / Event</option>
+                            <option>Bespoke Enquiry</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <select name="budget">
+                        <option value="" disabled selected>Estimated budget (optional)</option>
+                        <option>Under ₦50,000</option>
+                        <option>₦50,000 – ₦150,000</option>
+                        <option>₦150,000 – ₦500,000</option>
+                        <option>₦500,000+</option>
+                    </select>
+                    <textarea name="message" placeholder="Tell us a little about what you have in mind..."
+                        required></textarea>
+                    <p class="form-note">By submitting, you agree to be contacted by Lustre By Kal regarding your
+                        enquiry.</p>
+                    <button type="submit" class="btn">Send Enquiry</button>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    <strong>Thank you — your enquiry has been received.</strong><br>
+                    A member of the Lustre By Kal team will be in touch within one business day.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         TESTIMONIAL
+    ============================================================= -->
+    <section class="testimonial">
+        <div class="container">
+            <p class="quote">"They didn't just pack a box — they understood the assignment. Every client on our list
+                asked where it was from."</p>
+            <p class="quote-author">— Director of People, Lagos-based fintech client</p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#top" class="logo">Lustre<span>By Kal</span></a>
+                    <p class="footer-about">
+                        Premium and bespoke gifting for individuals, executives, and
+                        corporations who want the gift to say as much as the giver does.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Facebook">FB</a>
+                        <a href="#" aria-label="TikTok">TT</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Gifting</h4>
+                    <a href="#services">Personal Gifting</a>
+                    <a href="#corporate">Corporate Gifting</a>
+                    <a href="#collections">Collections</a>
+                    <a href="#bespoke">Bespoke</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Studio</h4>
+                    <a href="#experience">Our Process</a>
+                    <a href="#">About Kal</a>
+                    <a href="#">Journal</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <a href="#enquiry">Start An Enquiry</a>
+                    <a href="mailto:hello@lustrebykal.com">hello@lustrebykal.com</a>
+                    <a href="tel:+2348000000000">+234 800 000 0000</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <span>© <span id="year"></span> Lustre By Kal. All rights reserved.</span>
+                <span>Privacy Policy · Terms of Service</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         WHATSAPP
+    ============================================================= -->
+    <a class="whatsapp" href="https://wa.me/2348000000000" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">☎</a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
+        });
+
+        // Sticky header shadow on scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.scrollY > 10 ? '0 6px 20px rgba(0,0,0,.05)' : 'none';
+        });
+
+        // Enquiry form submission (front-end only — wire up to a backend or form service to go live)
+        const enquiryForm = document.getElementById('enquiryForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        enquiryForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            enquiryForm.classList.add('hide');
+            formSuccess.classList.add('show');
+        });
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

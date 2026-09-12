@@ -1,0 +1,22 @@
+# Node / Next.js build artefacts
+web/node_modules/
+web/.next/
+web/out/
+web/build/
+*.tsbuildinfo
+web/next-env.d.ts
+
+# Local secrets — never commit these
+web/.env
+web/.env.local
+web/.env.production.local
+web/.env.development.local
+!web/.env.example
+
+# Test output and scratch
+web/tests/output/
+web/scripts/og/.tmp/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
