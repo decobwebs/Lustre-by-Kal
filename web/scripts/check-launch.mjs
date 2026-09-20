@@ -46,6 +46,10 @@ check("warn", hamperPhotos >= 3, `Photos of packed hampers (${hamperPhotos} of 3
 const og = ["default", "radiant-lux", "grace-lux", "bloom-lux"].filter((f) => !existsSync(join(root, "public/og", `${f}.png`)));
 check("warn", og.length === 0, "Link-preview images", `Run npm run og (missing: ${og.join(", ")}).`);
 
+const proxySource = existsSync(join(root, "src/proxy.ts")) ? readFileSync(join(root, "src/proxy.ts"), "utf8") : "";
+const siteLocked = /const\s+SITE_LOCKED\s*=\s*true/.test(proxySource);
+check("warn", !siteLocked, "Site lock (every address currently answers 404)", "Set SITE_LOCKED to false in src/proxy.ts, then commit and push, when the site should be public.");
+
 let blocking = 0;
 console.log("\nLustre by Kal · launch check\n");
 for (const r of results) {

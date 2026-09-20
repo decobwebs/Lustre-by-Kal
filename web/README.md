@@ -70,6 +70,19 @@ in the navigation, but it is **not password-protected** — anyone with the
 secret is shown beyond what the customer already sent), but don't put anything
 more sensitive on this page without adding a login first.
 
+## Site lock (currently ON)
+
+Until the site is meant to be public, `src/proxy.ts` makes the deployed site
+answer **404 to every address**: pages, `/api/*`, images, the sitemap, everything.
+The 404 is a plain, unbranded page, never cached, and marked noindex.
+
+**To lift it:** in `src/proxy.ts` change `const SITE_LOCKED = true;` to `false`,
+commit and push. Nothing else needs to change.
+
+`npm run dev` is never locked. A production build (`npm run build && npm start`,
+which is what the host runs) is locked unless started with `SITE_UNLOCK=1` —
+that switch exists so the browser tests below can run against a production build.
+
 ## Going live
 
 1. Register `lustrebykal.com` and create the `admin@` mailbox.
@@ -80,17 +93,17 @@ more sensitive on this page without adding a login first.
 
 ## Tests
 
-Two scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first.
+Three scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
 
 ```bash
 # 1. Full order flow, with email delivery faked locally
 node tests/mock-email-server.mjs tests/output/emails.jsonl &
-RESEND_API_KEY=test EMAIL_FROM="Lustre by Kal <orders@lustrebykal.com>" \
+SITE_UNLOCK=1 RESEND_API_KEY=test EMAIL_FROM="Lustre by Kal <orders@lustrebykal.com>" \
   RESEND_API_URL=http://localhost:3999/emails npx next start -p 3100
 npm run test:flow          # adds hampers, checks totals, typo help, both send routes, the emails sent
 
 # 2. Launch state: no WhatsApp number configured, home-screen install, offline pages
-npm start -- -p 3100
+SITE_UNLOCK=1 npm start -- -p 3100
 npm run test:launch-state
 
 # 3. Motion: rotating hamper photos, scrolling strip, reveals, reduced-motion
