@@ -70,18 +70,17 @@ in the navigation, but it is **not password-protected** — anyone with the
 secret is shown beyond what the customer already sent), but don't put anything
 more sensitive on this page without adding a login first.
 
-## Site lock (currently ON)
+## Site lock (currently OFF — the site is public)
 
-Until the site is meant to be public, `src/proxy.ts` makes the deployed site
-answer **404 to every address**: pages, `/api/*`, images, the sitemap, everything.
-The 404 is a plain, unbranded page, never cached, and marked noindex.
+`src/proxy.ts` can hide the whole deployed site: when `const SITE_LOCKED = true;`
+every address (pages, `/api/*`, images, the sitemap) answers a plain, unbranded,
+never-cached, noindex **404**. It was lifted on 15 October 2026.
 
-**To lift it:** in `src/proxy.ts` change `const SITE_LOCKED = true;` to `false`,
-commit and push. Nothing else needs to change.
+**To lock it again:** set `SITE_LOCKED` back to `true`, commit and push.
 
-`npm run dev` is never locked. A production build (`npm run build && npm start`,
-which is what the host runs) is locked unless started with `SITE_UNLOCK=1` —
-that switch exists so the browser tests below can run against a production build.
+`npm run dev` is never locked. While locked, a production build
+(`npm run build && npm start`) is also locked unless started with `SITE_UNLOCK=1`,
+which exists so the browser tests below can run against a production build.
 
 ## "Trusted by" logo strip
 

@@ -111,7 +111,7 @@ export function SeasonalGiftSection({ headingLevel = 2 }: { headingLevel?: 2 | 3
       <div className="flex flex-col gap-4">
         <figure className="flex flex-col gap-3">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-line bg-tint">
-            <Image src={giftBox} alt="A Lustre by Kal gift box in blush pink, finished with a satin ribbon and gift tag" fill sizes="(min-width: 1024px) 460px, 100vw" className="object-cover" placeholder="blur" />
+            <Image src={giftBox} alt="A white Lustre by Kal Season's Greetings gift box with hanging gold stars, a festive wreath and the LK monogram" fill sizes="(min-width: 1024px) 460px, 100vw" className="object-cover" placeholder="blur" />
           </div>
           <figcaption className="text-sm text-muted">Every seasonal box is wrapped and finished to match the occasion.</figcaption>
         </figure>

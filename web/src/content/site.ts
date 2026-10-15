@@ -20,10 +20,11 @@ export const site = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "admin@lustrebykal.com",
 
   /**
-   * Kal's WhatsApp number in international format, digits only
-   * (for example 2348012345678). Empty hides every WhatsApp button.
+   * Kal's WhatsApp number in international format, digits only. Set
+   * NEXT_PUBLIC_WHATSAPP_NUMBER to override it; Kal's own number is the
+   * default so the buttons work even where the variable isn't set.
    */
-  whatsapp: digits(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER),
+  whatsapp: digits(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "2348060897446"),
 
   /** Social handles without the @. Empty hides the link. */
   social: {

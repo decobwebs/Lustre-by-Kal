@@ -13,7 +13,7 @@ import { NextResponse } from "next/server";
  * runs) is locked unless it is started with SITE_UNLOCK=1, which exists only so
  * the browser tests can exercise a production build on a developer's machine.
  */
-const SITE_LOCKED = true;
+const SITE_LOCKED = false;
 
 const isLocked = () =>
   SITE_LOCKED && process.env.NODE_ENV === "production" && process.env.SITE_UNLOCK !== "1";

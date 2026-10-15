@@ -27,7 +27,7 @@ Object.assign(env, Object.fromEntries(Object.entries(process.env).filter(([k]) =
 const results = [];
 const check = (level, ok, label, fix) => results.push({ level, ok, label, fix });
 
-const wa = (env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+const wa = (env.NEXT_PUBLIC_WHATSAPP_NUMBER || "2348060897446").replace(/\D/g, ""); // same default as src/content/site.ts
 check("block", /^\d{10,15}$/.test(wa) && !/^2348000000000$/.test(wa), "WhatsApp number", "Set NEXT_PUBLIC_WHATSAPP_NUMBER to Kal's number, e.g. 2348012345678.");
 check("block", Boolean(env.RESEND_API_KEY), "Email sending key", "Create a Resend API key and set RESEND_API_KEY.");
 check("block", /<?[^@\s]+@[^@\s]+>?/.test(env.EMAIL_FROM ?? ""), "Sender address", 'Set EMAIL_FROM, e.g. "Lustre by Kal <orders@lustrebykal.com>" (domain verified in Resend).');
