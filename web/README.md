@@ -98,6 +98,26 @@ configured). Nothing is validated or sent to a server — it's the same
 message-composing pattern as `askText()`, just for a different kind of ask.
 Occasions and the message template live in `src/lib/seasonal.ts`.
 
+## The seasonal gift-box video
+
+A short, silent, looping video sits under the seasonal photo (`#seasonal`):
+the real "Season's Greetings" gift box turning to show its gold foil detail,
+re-encoded from a clip management sent (colour-corrected the same way as the
+still photo, remuxed/re-encoded for the web, both MP4 and a smaller WebM, plus
+a poster frame — all in `public/videos/seasonal/`).
+
+It autoplays muted and loops, with an explicit `video.play()` nudge on mount
+rather than relying on the `autoplay` attribute alone — that attribute isn't
+reliably honoured in every mobile and in-app browser (Instagram's and
+WhatsApp's in particular, which matters since that's exactly where customers
+click through from). `prefers-reduced-motion` still wins: the video pauses
+and hands the visitor native controls instead of looping on its own.
+
+Two other videos management sent were **held out deliberately**: both carry
+an Instagram "credit" overlay naming a different person, which Instagram only
+adds when content is reposted from someone else's account or uses their
+original audio. Confirm the rights situation before using either on the site.
+
 ## The air fryer in Radiant Lux
 
 Folded into Radiant Lux's own contents and photos (`src/content/catalogue.ts`)
@@ -116,7 +136,7 @@ hampers (`addOns`), unchanged.
 
 ## Tests
 
-Four scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
+Five scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
 
 ```bash
 # 1. Full order flow, with email delivery faked locally
@@ -134,6 +154,9 @@ npm run test:motion
 
 # 4. Seasonal gifting section: occasion chips, the composed WhatsApp/email message, nav/footer links
 npm run test:seasonal
+
+# 5. The seasonal video: autoplay/loop/mute, the mobile play() fallback, reduced-motion
+npm run test:seasonal-video
 ```
 
 Screenshots and captured emails land in `tests/output/`. Both browser tests take

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import giftBox from "@/assets/seasonal/gift-box.jpg";
 import { MailIcon, WhatsAppIcon } from "@/components/icons";
@@ -21,6 +21,23 @@ export function SeasonalGiftSection({ headingLevel = 2 }: { headingLevel?: 2 | 3
   const [occasion, setOccasion] = useState<SeasonalOccasion>("Birthday");
   const [requirements, setRequirements] = useState("");
   const [budget, setBudget] = useState("");
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Still show it — just hand control to the visitor instead of looping on its own.
+      video.autoplay = false;
+      video.loop = false;
+      video.controls = true;
+      video.pause();
+      return;
+    }
+    // The autoplay attribute alone isn't reliably honoured in every mobile and
+    // in-app browser (notably Instagram's and WhatsApp's), so nudge it directly.
+    video.play().catch(() => {});
+  }, []);
 
   const text = seasonalRequestText({ occasion, requirements, budget });
   const wa = whatsappLink(text);
@@ -91,12 +108,35 @@ export function SeasonalGiftSection({ headingLevel = 2 }: { headingLevel?: 2 | 3
         <p className="text-sm text-muted">Send us a DM any time, any day — we usually reply within a few hours.</p>
       </div>
 
-      <figure className="flex flex-col gap-3">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-line bg-tint lg:aspect-auto lg:h-full">
-          <Image src={giftBox} alt="A Lustre by Kal gift box in blush pink, finished with a satin ribbon and gift tag" fill sizes="(min-width: 1024px) 460px, 100vw" className="object-cover" placeholder="blur" />
-        </div>
-        <figcaption className="text-sm text-muted">Every seasonal box is wrapped and finished to match the occasion.</figcaption>
-      </figure>
+      <div className="flex flex-col gap-4">
+        <figure className="flex flex-col gap-3">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-line bg-tint">
+            <Image src={giftBox} alt="A Lustre by Kal gift box in blush pink, finished with a satin ribbon and gift tag" fill sizes="(min-width: 1024px) 460px, 100vw" className="object-cover" placeholder="blur" />
+          </div>
+          <figcaption className="text-sm text-muted">Every seasonal box is wrapped and finished to match the occasion.</figcaption>
+        </figure>
+
+        <figure className="flex flex-col gap-2">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-line bg-tint">
+            {/* Silent and looping by design — nothing on the page plays sound without the visitor asking for it. */}
+            <video
+              ref={videoRef}
+              className="h-full w-full object-cover"
+              poster="/videos/seasonal/gift-box-loop-poster.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              aria-label="Our Christmas gift box, turning slowly to show its gold foil detailing"
+            >
+              <source src="/videos/seasonal/gift-box-loop.webm" type="video/webm" />
+              <source src="/videos/seasonal/gift-box-loop.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <figcaption className="text-sm text-muted">Our Christmas edition — one example of the finish we match to the occasion.</figcaption>
+        </figure>
+      </div>
     </section>
   );
 }
