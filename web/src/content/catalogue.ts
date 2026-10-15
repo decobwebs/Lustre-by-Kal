@@ -3,21 +3,25 @@ import type { StaticImageData } from "next/image";
 import airFryer from "@/assets/products/air-fryer.jpg";
 import blender from "@/assets/products/blender.jpg";
 import brandedMug from "@/assets/products/branded-mug.jpg";
+import cap from "@/assets/products/cap.jpg";
 import candleSet from "@/assets/products/candle-set-aroma-home.jpg";
 import coffeeMaker from "@/assets/products/coffee-maker.jpg";
 import deskCalendar from "@/assets/products/desk-calendar.jpg";
 import diffuser from "@/assets/products/diffuser-nedens.jpg";
 import garmentSteamer from "@/assets/products/garment-steamer.jpg";
+import insulatedMugSet from "@/assets/products/insulated-mug-set.jpg";
 import giftTag from "@/assets/products/gift-tag.jpg";
 import hairClipper from "@/assets/products/hair-clipper.jpg";
 import juice from "@/assets/products/juice-chamdor.jpg";
 import kettle from "@/assets/products/kettle.jpg";
+import notebookPenSet from "@/assets/products/notebook-pen-set.jpg";
 import massageGun from "@/assets/products/massage-gun.jpg";
 import portableBlender from "@/assets/products/portable-blender.jpg";
 import smartTumblers from "@/assets/products/smart-tumblers.jpg";
 import stanleyCup from "@/assets/products/stanley-cup.jpg";
 import steamIron from "@/assets/products/steam-iron.jpg";
 import teaAlokozay from "@/assets/products/tea-alokozay.jpg";
+import towel from "@/assets/products/towel.jpg";
 import teaBigelow from "@/assets/products/tea-bigelow.jpg";
 import teaEminent from "@/assets/products/tea-eminent.jpg";
 import flask from "@/assets/products/vacuum-flask-set.jpg";
@@ -62,6 +66,11 @@ const photoData = {
   giftTag: { src: giftTag, name: "Gift card", detail: "Lustre by Kal, star-trimmed", alt: "Scalloped Lustre by Kal gift card with gold star trim", in: ["radiant-lux", "grace-lux"] },
   deskCalendar: { src: deskCalendar, name: "Desk calendar", detail: "2027, Lustre by Kal", alt: "Lustre by Kal 2027 desk calendar" },
   smartTumblers: { src: smartTumblers, name: "Smart tumblers", detail: "Digital temperature display, pair", alt: "Two Lustre by Kal tumblers with a digital temperature display" },
+  cap: { src: cap, name: "Branded cap", detail: "Embroidered, Lustre by Kal", alt: "White cap embroidered with the Lustre by Kal logo" },
+  notebookPenSet: { src: notebookPenSet, name: "Notebook & pen set", detail: "Lustre by Kal", alt: "Textured notebook and pen set branded Lustre by Kal" },
+  towel: { src: towel, name: "Embroidered towel", detail: "Lustre by Kal", alt: "White towel embroidered with the Lustre by Kal logo" },
+  // No Lustre by Kal branding visible on this one — it's a generic supplier photo, not a confirmed product. Confirm before relying on it.
+  insulatedMugSet: { src: insulatedMugSet, name: "Insulated mug set", detail: "Set of 3", alt: "Set of three insulated mugs in blue, grey and red" },
 } satisfies Record<string, Photo>;
 
 export type PhotoKey = keyof typeof photoData;
@@ -246,6 +255,10 @@ export const addOns: AddOn[] = [
   { kind: "addon", ref: "LBK-AD05", slug: "garment-steamer", name: "Garment steamer", detail: "Handheld", photo: "garmentSteamer" },
   { kind: "addon", ref: "LBK-AD06", slug: "desk-calendar", name: "Desk calendar", detail: "2027, Lustre by Kal", photo: "deskCalendar" },
   { kind: "addon", ref: "LBK-AD07", slug: "smart-tumblers", name: "Smart tumblers", detail: "Digital temperature display, pair", photo: "smartTumblers" },
+  { kind: "addon", ref: "LBK-AD08", slug: "cap", name: "Branded cap", detail: "Embroidered, Lustre by Kal", photo: "cap" },
+  { kind: "addon", ref: "LBK-AD09", slug: "notebook-pen-set", name: "Notebook & pen set", detail: "Lustre by Kal", photo: "notebookPenSet" },
+  { kind: "addon", ref: "LBK-AD10", slug: "towel", name: "Embroidered towel", detail: "Lustre by Kal", photo: "towel" },
+  { kind: "addon", ref: "LBK-AD11", slug: "insulated-mug-set", name: "Insulated mug set", detail: "Set of 3", photo: "insulatedMugSet" },
 ];
 
 /* ------------------------------------------------------------------ */
