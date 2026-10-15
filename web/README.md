@@ -83,6 +83,18 @@ commit and push. Nothing else needs to change.
 which is what the host runs) is locked unless started with `SITE_UNLOCK=1` —
 that switch exists so the browser tests below can run against a production build.
 
+## "Trusted by" logo strip
+
+A second, fuller instance of the same marquee pattern as the product strip —
+right after the hero on the home page. Logos live in `content/partners.ts`;
+Kal is sending more over time, so **just append to that list** — the strip
+pads itself out to a minimum size and re-derives the seamless loop
+automatically, whether there are 2 partners or 20.
+
+Grayscale at rest, full colour on hover, pauses on hover/focus, still visible
+(just not animating) under `prefers-reduced-motion` — same rules as every
+other moving thing on this site.
+
 ## The welcome-offer popup
 
 Shows on **every homepage visit** — deliberately not suppressed by
@@ -151,7 +163,7 @@ hampers (`addOns`), unchanged.
 
 ## Tests
 
-Six scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
+Seven scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
 
 ```bash
 # 1. Full order flow, with email delivery faked locally
@@ -175,6 +187,9 @@ npm run test:seasonal-video
 
 # 6. The welcome-offer popup: appears every visit, closes only via ×, the code, both emails
 npm run test:promo
+
+# 7. "Trusted by" logo strip: seamless loop, hover pause, grayscale-to-colour, reduced motion
+npm run test:trusted-by
 ```
 
 Screenshots and captured emails land in `tests/output/`. Both browser tests take

@@ -87,17 +87,17 @@ with sync_playwright() as p:
     page.goto(B + "/", wait_until="networkidle")
     dismiss_promo(page)
     page.wait_for_timeout(800)
-    strip = page.locator(".marquee-track")
+    strip = page.locator("section:has(#inside-title) .marquee-track")
     ok("strip carries every hamper product twice", strip.locator("li").count() == 32, str(strip.locator("li").count()))  # 16 products x2
-    before = page.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform")
+    before = page.evaluate("getComputedStyle(document.querySelector('#inside-title').closest('section').querySelector('.marquee-track')).transform")
     page.wait_for_timeout(1500)
-    after = page.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform")
+    after = page.evaluate("getComputedStyle(document.querySelector('#inside-title').closest('section').querySelector('.marquee-track')).transform")
     ok("strip is moving", before != after)
-    page.locator(".marquee").hover()
+    page.locator("section:has(#inside-title) .marquee").hover()
     page.wait_for_timeout(400)
-    held = page.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform")
+    held = page.evaluate("getComputedStyle(document.querySelector('#inside-title').closest('section').querySelector('.marquee-track')).transform")
     page.wait_for_timeout(1200)
-    ok("strip stops when hovered", held == page.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform"))
+    ok("strip stops when hovered", held == page.evaluate("getComputedStyle(document.querySelector('#inside-title').closest('section').querySelector('.marquee-track')).transform"))
     page.mouse.move(0, 0)
 
     # Backdrop
@@ -129,9 +129,9 @@ with sync_playwright() as p:
     page2.goto(B + "/", wait_until="networkidle")
     dismiss_promo(page2)
     page2.wait_for_timeout(600)
-    t1 = page2.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform")
+    t1 = page2.evaluate("getComputedStyle(document.querySelector('#inside-title').closest('section').querySelector('.marquee-track')).transform")
     page2.wait_for_timeout(1400)
-    ok("strip holds still too", t1 == page2.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform"))
+    ok("strip holds still too", t1 == page2.evaluate("getComputedStyle(document.querySelector('#inside-title').closest('section').querySelector('.marquee-track')).transform"))
     page2.screenshot(path=str(SHOTS / "reduced-motion-home.png"), full_page=True)
 
     # Phone

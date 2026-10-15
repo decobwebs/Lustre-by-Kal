@@ -7,6 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { QuickEstimate } from "@/components/QuickEstimate";
 import { AddOns, ContactBand, HowToOrder, InsideStrip, Questions, SectionHeading } from "@/components/sections";
 import { SeasonalGiftSection } from "@/components/SeasonalGiftSection";
+import { TrustedBy } from "@/components/TrustedBy";
 import { ArrowIcon, CheckIcon, WhatsAppIcon } from "@/components/icons";
 import { hamperLevel, hampers, lowestPrice } from "@/content/catalogue";
 import { site } from "@/content/site";
@@ -92,6 +93,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <TrustedBy />
 
       {/* ------------------------------------------------------ Hampers */}
       <section id="hampers" aria-labelledby="hampers-title" className="border-t border-line bg-raised/60">
