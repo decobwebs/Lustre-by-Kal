@@ -26,7 +26,7 @@ with sync_playwright() as p:
     page.goto(B + "/#seasonal", wait_until="networkidle")
     section = page.locator("#seasonal")
     ok("section present", section.count() == 1)
-    ok("hero gift-bag photo visible", page.locator("#seasonal img[alt*='seasonal gift bag']").is_visible())
+    ok("hero gift-box photo visible", page.locator("#seasonal img[alt*='gift box']").is_visible())
     ok("Birthday selected by default", page.locator("#seasonal input[value='Birthday']").is_checked())
 
     wa_btn = page.locator("#seasonal a:has-text('Chat on WhatsApp')")

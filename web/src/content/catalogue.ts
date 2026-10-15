@@ -2,15 +2,20 @@ import type { StaticImageData } from "next/image";
 
 import airFryer from "@/assets/products/air-fryer.jpg";
 import blender from "@/assets/products/blender.jpg";
+import brandedMug from "@/assets/products/branded-mug.jpg";
 import candleSet from "@/assets/products/candle-set-aroma-home.jpg";
 import coffeeMaker from "@/assets/products/coffee-maker.jpg";
+import deskCalendar from "@/assets/products/desk-calendar.jpg";
 import diffuser from "@/assets/products/diffuser-nedens.jpg";
 import garmentSteamer from "@/assets/products/garment-steamer.jpg";
+import giftTag from "@/assets/products/gift-tag.jpg";
 import hairClipper from "@/assets/products/hair-clipper.jpg";
 import juice from "@/assets/products/juice-chamdor.jpg";
 import kettle from "@/assets/products/kettle.jpg";
 import massageGun from "@/assets/products/massage-gun.jpg";
 import portableBlender from "@/assets/products/portable-blender.jpg";
+import smartTumblers from "@/assets/products/smart-tumblers.jpg";
+import stanleyCup from "@/assets/products/stanley-cup.jpg";
 import steamIron from "@/assets/products/steam-iron.jpg";
 import teaAlokozay from "@/assets/products/tea-alokozay.jpg";
 import teaBigelow from "@/assets/products/tea-bigelow.jpg";
@@ -52,6 +57,11 @@ const photoData = {
   garmentSteamer: { src: garmentSteamer, name: "Garment steamer", detail: "Handheld", alt: "Black handheld garment steamer" },
   blender: { src: blender, name: "Blender", detail: "Countertop, glass jug", alt: "Black countertop blender with a glass jug" },
   portableBlender: { src: portableBlender, name: "Portable blender", detail: "Rechargeable", alt: "Pink rechargeable portable blender with fruit" },
+  brandedMug: { src: brandedMug, name: "Branded mug", detail: "Lustre by Kal", alt: "White Lustre by Kal mug on a wooden table", in: ALL },
+  stanleyCup: { src: stanleyCup, name: "Stanley cup", detail: "Insulated tumbler, Lustre by Kal", alt: "Tan insulated Lustre by Kal tumbler with handle", in: ALL },
+  giftTag: { src: giftTag, name: "Gift card", detail: "Lustre by Kal, star-trimmed", alt: "Scalloped Lustre by Kal gift card with gold star trim", in: ["radiant-lux", "grace-lux"] },
+  deskCalendar: { src: deskCalendar, name: "Desk calendar", detail: "2027, Lustre by Kal", alt: "Lustre by Kal 2027 desk calendar" },
+  smartTumblers: { src: smartTumblers, name: "Smart tumblers", detail: "Digital temperature display, pair", alt: "Two Lustre by Kal tumblers with a digital temperature display" },
 } satisfies Record<string, Photo>;
 
 export type PhotoKey = keyof typeof photoData;
@@ -123,7 +133,7 @@ export const hampers: Hamper[] = [
         lines: [{ name: "Branded mug" }, { name: "Custom greeting card" }, { name: "Rattan gift box and ribbon" }],
       },
     ],
-    photos: ["wine", "airFryer", "massageGun", "candleSet", "teaAlokozay", "flask", "steamIron"],
+    photos: ["wine", "airFryer", "massageGun", "candleSet", "teaAlokozay", "flask", "steamIron", "stanleyCup", "brandedMug", "giftTag"],
   },
   {
     kind: "hamper",
@@ -168,7 +178,7 @@ export const hampers: Hamper[] = [
         lines: [{ name: "Branded mug" }, { name: "Personalised thank-you card" }, { name: "Rattan gift box and ribbon wrap" }],
       },
     ],
-    photos: ["juice", "kettle", "hairClipper", "diffuser", "teaEminent", "massageGun"],
+    photos: ["juice", "kettle", "hairClipper", "diffuser", "teaEminent", "massageGun", "stanleyCup", "brandedMug", "giftTag"],
   },
   {
     kind: "hamper",
@@ -209,7 +219,7 @@ export const hampers: Hamper[] = [
       { title: "Scent", lines: [{ name: "Scented candles or diffuser set" }] },
       { title: "Finishing", lines: [{ name: "Branded mug" }] },
     ],
-    photos: ["candleSet", "kettle", "teaBigelow", "juice", "flask", "massageGun"],
+    photos: ["candleSet", "kettle", "teaBigelow", "juice", "flask", "massageGun", "stanleyCup", "brandedMug"],
   },
 ];
 
@@ -234,6 +244,8 @@ export const addOns: AddOn[] = [
   { kind: "addon", ref: "LBK-AD03", slug: "blender", name: "Blender", detail: "Countertop, glass jug", photo: "blender" },
   { kind: "addon", ref: "LBK-AD04", slug: "portable-blender", name: "Portable blender", detail: "Rechargeable", photo: "portableBlender" },
   { kind: "addon", ref: "LBK-AD05", slug: "garment-steamer", name: "Garment steamer", detail: "Handheld", photo: "garmentSteamer" },
+  { kind: "addon", ref: "LBK-AD06", slug: "desk-calendar", name: "Desk calendar", detail: "2027, Lustre by Kal", photo: "deskCalendar" },
+  { kind: "addon", ref: "LBK-AD07", slug: "smart-tumblers", name: "Smart tumblers", detail: "Digital temperature display, pair", photo: "smartTumblers" },
 ];
 
 /* ------------------------------------------------------------------ */

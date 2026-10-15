@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useId, useState } from "react";
 
-import giftBag from "@/assets/seasonal/gift-bag.jpg";
+import giftBox from "@/assets/seasonal/gift-box.jpg";
 import { MailIcon, WhatsAppIcon } from "@/components/icons";
 import { site } from "@/content/site";
 import { SEASONAL_OCCASIONS, seasonalRequestText, type SeasonalOccasion } from "@/lib/seasonal";
@@ -93,9 +93,9 @@ export function SeasonalGiftSection({ headingLevel = 2 }: { headingLevel?: 2 | 3
 
       <figure className="flex flex-col gap-3">
         <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-line bg-tint lg:aspect-auto lg:h-full">
-          <Image src={giftBag} alt="A Lustre by Kal seasonal gift bag, finished with gold foil stars and a Season's Greetings wreath" fill sizes="(min-width: 1024px) 460px, 100vw" className="object-cover" placeholder="blur" />
+          <Image src={giftBox} alt="A Lustre by Kal gift box in blush pink, finished with a satin ribbon and gift tag" fill sizes="(min-width: 1024px) 460px, 100vw" className="object-cover" placeholder="blur" />
         </div>
-        <figcaption className="text-sm text-muted">One of our seasonal gift bags — every box is finished to match the occasion.</figcaption>
+        <figcaption className="text-sm text-muted">Every seasonal box is wrapped and finished to match the occasion.</figcaption>
       </figure>
     </section>
   );
