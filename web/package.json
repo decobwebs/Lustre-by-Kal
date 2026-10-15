@@ -15,7 +15,8 @@
     "test:motion": "python tests/motion.py",
     "test:admin": "python tests/admin.py",
     "test:seasonal": "python tests/seasonal.py",
-    "test:seasonal-video": "python tests/seasonal-video.py"
+    "test:seasonal-video": "python tests/seasonal-video.py",
+    "test:promo": "python tests/promo.py"
   },
   "dependencies": {
     "next": "16.3.4",

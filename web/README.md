@@ -83,6 +83,21 @@ commit and push. Nothing else needs to change.
 which is what the host runs) is locked unless started with `SITE_UNLOCK=1` —
 that switch exists so the browser tests below can run against a production build.
 
+## The welcome-offer popup
+
+Shows on **every homepage visit** — deliberately not suppressed by
+`localStorage`, per instruction — and closes **only** via its own × (or
+"Got it" after signing up), not the backdrop and not Escape; also per
+instruction. Lives in `src/components/PromoModal.tsx`, rendered only on `/`.
+
+There's no checkout to apply a discount to, so the code (`site.firstOrderOffer`
+in `content/site.ts`, currently `WELCOME5` for 5%) is fixed and honoured
+manually, the same way every hamper order already gets confirmed and invoiced
+by hand. `POST /api/subscribe` validates the email, emails Kal a notice
+(reply-to the subscriber) and emails the subscriber their code — and shows the
+code on screen regardless, so a slow or failed email never leaves someone
+without it. Same bot protections as the other two endpoints.
+
 ## Seasonal gifting (`#seasonal`, on `/` and `/hampers`)
 
 A lighter offer alongside the three fixed hampers: a self-curated gift box for
@@ -136,7 +151,7 @@ hampers (`addOns`), unchanged.
 
 ## Tests
 
-Five scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
+Six scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
 
 ```bash
 # 1. Full order flow, with email delivery faked locally
@@ -157,6 +172,9 @@ npm run test:seasonal
 
 # 5. The seasonal video: autoplay/loop/mute, the mobile play() fallback, reduced-motion
 npm run test:seasonal-video
+
+# 6. The welcome-offer popup: appears every visit, closes only via ×, the code, both emails
+npm run test:promo
 ```
 
 Screenshots and captured emails land in `tests/output/`. Both browser tests take

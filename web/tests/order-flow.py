@@ -8,6 +8,19 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
+
+def dismiss_promo(page, timeout=2500):
+    """The welcome-offer popup shows on every homepage visit and (by design)
+    only closes via its own × — so anything that lands on / and then
+    needs to click through the page has to get it out of the way first."""
+    overlay = page.locator(".promo-overlay")
+    try:
+        overlay.wait_for(state="visible", timeout=timeout)
+    except Exception:
+        return
+    page.get_by_role("button", name="Close").click()
+    page.wait_for_timeout(400)
+
 WHATSAPP = os.environ.get("WHATSAPP", "2348060897446")
 SP = Path(__file__).parent
 SHOTS = SP / "output"; SHOTS.mkdir(exist_ok=True)
@@ -54,6 +67,7 @@ with sync_playwright() as p:
 
     # quick estimate on home
     page.goto(B + "/#team-title", wait_until="networkidle")
+    dismiss_promo(page)
     page.get_by_label("One more: Radiant Lux quantity").click()
     page.get_by_label("One more: Radiant Lux quantity").click()
     ok("estimate total", page.get_by_text("₦720,000").first.is_visible())

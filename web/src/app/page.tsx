@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { HamperCard } from "@/components/HamperCard";
 import { Monogram, Sparkle } from "@/components/Logo";
+import { PromoModal } from "@/components/PromoModal";
 import { Reveal } from "@/components/Reveal";
 import { QuickEstimate } from "@/components/QuickEstimate";
 import { AddOns, ContactBand, HowToOrder, InsideStrip, Questions, SectionHeading } from "@/components/sections";
@@ -17,6 +18,8 @@ export default function HomePage() {
 
   return (
     <>
+      <PromoModal />
+
       {/* ---------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden">
         <div className="container-x grid items-center gap-14 pt-12 pb-20 md:pt-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:pt-20 lg:pb-28">

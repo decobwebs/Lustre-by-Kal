@@ -468,4 +468,35 @@
   .btn-gold:hover { background: linear-gradient(180deg, #f0dab5, #d9b884); }
   .btn-gold-outline { border-color: rgb(217 184 132 / 0.55); color: var(--color-bronze-light); background: transparent; }
   .btn-gold-outline:hover { background: rgb(217 184 132 / 0.12); }
+
+  /* ---------------------------------------------------------------- */
+  /* Welcome-offer popup: fades and settles in, reverses out on close   */
+  /* ---------------------------------------------------------------- */
+  .promo-overlay {
+    position: fixed; inset: 0; z-index: 70;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+    background: rgb(23 17 13 / 0.55); backdrop-filter: blur(3px);
+    opacity: 0; transition: opacity 320ms ease;
+  }
+  .promo-overlay.is-open { opacity: 1; }
+  .promo-panel {
+    position: relative; width: 100%; max-width: 26rem;
+    background: var(--color-raised); border: 1px solid var(--color-line); border-radius: 16px;
+    padding: 2.1rem 1.9rem 1.75rem;
+    box-shadow: 0 34px 70px -22px rgb(23 17 13 / 0.45);
+    transform: translateY(16px) scale(0.96); opacity: 0;
+    transition: transform 360ms cubic-bezier(0.2, 0.7, 0.2, 1), opacity 320ms ease;
+  }
+  .promo-overlay.is-open .promo-panel { transform: translateY(0) scale(1); opacity: 1; }
+  .promo-heading {
+    font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
+    font-size: clamp(1.5rem, 4vw, 1.9rem); line-height: 1.15; letter-spacing: 0.01em;
+    color: var(--color-ink);
+  }
+  .promo-close {
+    position: absolute; top: 0.85rem; right: 0.85rem; z-index: 1;
+    width: 2.25rem; height: 2.25rem; display: grid; place-items: center;
+    border-radius: 999px; color: var(--color-muted);
+  }
+  .promo-close:hover { background: var(--color-tint); color: var(--color-ink); }
 }

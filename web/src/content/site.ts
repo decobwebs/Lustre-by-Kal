@@ -36,6 +36,14 @@ export const site = {
     short: "Nationwide delivery in 2–5 days",
     full: "We deliver nationwide. Delivery takes a minimum of two days and a maximum of five days. Your location may affect this time.",
   },
+
+  /**
+   * The welcome-offer popup's code. There's no checkout to apply it
+   * automatically — it's honoured manually, the same way every order already
+   * gets confirmed and invoiced by hand. Quoted back to the subscriber by
+   * email the moment they sign up.
+   */
+  firstOrderOffer: { code: "WELCOME5", percent: 5 },
 } as const;
 
 /** "+234 801 234 5678" from "2348012345678". */

@@ -2,6 +2,19 @@
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
+
+def dismiss_promo(page, timeout=2500):
+    """The welcome-offer popup shows on every homepage visit and (by design)
+    only closes via its own × — so anything that lands on / and then
+    needs to click through the page has to get it out of the way first."""
+    overlay = page.locator(".promo-overlay")
+    try:
+        overlay.wait_for(state="visible", timeout=timeout)
+    except Exception:
+        return
+    page.get_by_role("button", name="Close").click()
+    page.wait_for_timeout(400)
+
 B = "http://localhost:3100"
 SP = Path(__file__).parent
 SHOTS = SP / "output"; SHOTS.mkdir(exist_ok=True)
@@ -72,6 +85,7 @@ with sync_playwright() as p:
 
     # Scrolling strip
     page.goto(B + "/", wait_until="networkidle")
+    dismiss_promo(page)
     page.wait_for_timeout(800)
     strip = page.locator(".marquee-track")
     ok("strip carries every hamper product twice", strip.locator("li").count() == 32, str(strip.locator("li").count()))  # 16 products x2
@@ -113,6 +127,7 @@ with sync_playwright() as p:
     page2.wait_for_timeout(5200)
     ok("still images when less motion is preferred", showing(page2) == start)
     page2.goto(B + "/", wait_until="networkidle")
+    dismiss_promo(page2)
     page2.wait_for_timeout(600)
     t1 = page2.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform")
     page2.wait_for_timeout(1400)
@@ -123,6 +138,7 @@ with sync_playwright() as p:
     ctx3 = browser.new_context(viewport={"width": 390, "height": 844})
     page3 = ctx3.new_page()
     page3.goto(B + "/", wait_until="networkidle")
+    dismiss_promo(page3)
     page3.wait_for_timeout(1200)
     over = page3.evaluate("document.documentElement.scrollWidth - window.innerWidth")
     ok("no sideways scroll on phone", over <= 0, f"overflow={over}px")
