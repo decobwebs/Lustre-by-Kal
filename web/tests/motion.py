@@ -74,7 +74,7 @@ with sync_playwright() as p:
     page.goto(B + "/", wait_until="networkidle")
     page.wait_for_timeout(800)
     strip = page.locator(".marquee-track")
-    ok("strip carries every hamper product twice", strip.locator("li").count() == 24, str(strip.locator("li").count()))
+    ok("strip carries every hamper product twice", strip.locator("li").count() == 26, str(strip.locator("li").count()))  # 13 products (air fryer now included) x2
     before = page.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform")
     page.wait_for_timeout(1500)
     after = page.evaluate("getComputedStyle(document.querySelector('.marquee-track')).transform")

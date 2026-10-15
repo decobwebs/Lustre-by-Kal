@@ -4,6 +4,7 @@ import { HamperCard } from "@/components/HamperCard";
 import { QuickEstimate } from "@/components/QuickEstimate";
 import { Reveal } from "@/components/Reveal";
 import { AddOns, ContactBand } from "@/components/sections";
+import { SeasonalGiftSection } from "@/components/SeasonalGiftSection";
 import { hampers, lowestPrice } from "@/content/catalogue";
 import { site } from "@/content/site";
 import { formatNaira } from "@/lib/format";
@@ -50,6 +51,12 @@ export default function HampersPage() {
 
       <div className="container-x py-20 md:py-24">
         <AddOns />
+      </div>
+
+      <div className="border-t border-line bg-tint/60">
+        <div className="container-x py-20 md:py-24">
+          <SeasonalGiftSection />
+        </div>
       </div>
 
       <ContactBand />

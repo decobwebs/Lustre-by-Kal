@@ -5,6 +5,7 @@ import { Monogram, Sparkle } from "@/components/Logo";
 import { Reveal } from "@/components/Reveal";
 import { QuickEstimate } from "@/components/QuickEstimate";
 import { AddOns, ContactBand, HowToOrder, InsideStrip, Questions, SectionHeading } from "@/components/sections";
+import { SeasonalGiftSection } from "@/components/SeasonalGiftSection";
 import { ArrowIcon, CheckIcon, WhatsAppIcon } from "@/components/icons";
 import { hamperLevel, hampers, lowestPrice } from "@/content/catalogue";
 import { site } from "@/content/site";
@@ -131,6 +132,12 @@ export default function HomePage() {
 
       <div className="container-x py-20 md:py-24">
         <AddOns />
+      </div>
+
+      <div className="border-t border-line bg-tint/60">
+        <div className="container-x py-20 md:py-24">
+          <SeasonalGiftSection />
+        </div>
       </div>
 
       <div className="border-t border-line">

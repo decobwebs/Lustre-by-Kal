@@ -11,6 +11,7 @@ import { BagIcon, MenuIcon } from "@/components/icons";
 const NAV = [
   { href: "/hampers", label: "Hampers" },
   { href: "/hampers#add-ons", label: "Add-ons" },
+  { href: "/#seasonal", label: "Seasonal gifts" },
   { href: "/#how-to-order", label: "How to order" },
   { href: "/contact", label: "Contact" },
 ];

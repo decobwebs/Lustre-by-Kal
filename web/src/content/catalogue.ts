@@ -47,7 +47,7 @@ const photoData = {
   steamIron: { src: steamIron, name: "Steam iron", detail: "Winning Star", alt: "White Winning Star steam iron on cream fabric", in: ["radiant-lux", "grace-lux"] },
   kettle: { src: kettle, name: "Electric kettle", detail: "Stainless steel", alt: "Stainless steel electric kettle", in: ["grace-lux", "bloom-lux"] },
   hairClipper: { src: hairClipper, name: "Hair clipper", detail: "Feiyba cordless", alt: "Black Feiyba hair clipper with guide combs and box", in: ["grace-lux"] },
-  airFryer: { src: airFryer, name: "Air fryer", detail: "With stacking rack", alt: "Black air fryer with a stacking rack of fried chicken" },
+  airFryer: { src: airFryer, name: "Air fryer", detail: "With stacking rack", alt: "Black air fryer with a stacking rack of fried chicken", in: ["radiant-lux"] },
   coffeeMaker: { src: coffeeMaker, name: "Coffee maker", detail: "HiBrew, six cups", alt: "Black HiBrew drip coffee maker with glass jug" },
   garmentSteamer: { src: garmentSteamer, name: "Garment steamer", detail: "Handheld", alt: "Black handheld garment steamer" },
   blender: { src: blender, name: "Blender", detail: "Countertop, glass jug", alt: "Black countertop blender with a glass jug" },
@@ -90,7 +90,7 @@ export const hampers: Hamper[] = [
     price: 360_000,
     audience: "Management staff, clients and partners",
     summary:
-      "Our premium hamper. Wine or sparkling juice, a massage gun, a Stanley cup, a duvet set and a pantry of treats, packed in a rattan gift box with ribbon.",
+      "Our premium hamper, built around a full-size air fryer. Wine or sparkling juice, a massage gun, a duvet set and a pantry of treats, packed in a rattan gift box with ribbon.",
     groups: [
       { title: "Drinks", lines: [{ qty: 2, name: "Premium wine or sparkling juice" }] },
       {
@@ -108,6 +108,7 @@ export const hampers: Hamper[] = [
       {
         title: "Gadgets and home",
         lines: [
+          { name: "Air fryer, with stacking rack" },
           { name: "Massage gun" },
           { name: "Stanley cup" },
           { name: "Power bank" },
@@ -122,7 +123,7 @@ export const hampers: Hamper[] = [
         lines: [{ name: "Branded mug" }, { name: "Custom greeting card" }, { name: "Rattan gift box and ribbon" }],
       },
     ],
-    photos: ["wine", "massageGun", "candleSet", "teaAlokozay", "flask", "steamIron"],
+    photos: ["wine", "airFryer", "massageGun", "candleSet", "teaAlokozay", "flask", "steamIron"],
   },
   {
     kind: "hamper",

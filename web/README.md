@@ -83,6 +83,29 @@ commit and push. Nothing else needs to change.
 which is what the host runs) is locked unless started with `SITE_UNLOCK=1` —
 that switch exists so the browser tests below can run against a production build.
 
+## Seasonal gifting (`#seasonal`, on `/` and `/hampers`)
+
+A lighter offer alongside the three fixed hampers: a self-curated gift box for
+a personal occasion (birthday, Valentine's, Christmas, Eid, Ramadan), under
+₦100,000, with no fixed price or contents list — it's built around a real
+conversation, not a catalogue entry.
+
+`SeasonalGiftSection` (`src/components/SeasonalGiftSection.tsx`) lets a visitor
+pick an occasion, optionally add a budget and a line about what they have in
+mind, and composes that straight into a WhatsApp message (or a `mailto:` if
+they'd rather email, which is always offered regardless of whether WhatsApp is
+configured). Nothing is validated or sent to a server — it's the same
+message-composing pattern as `askText()`, just for a different kind of ask.
+Occasions and the message template live in `src/lib/seasonal.ts`.
+
+## The air fryer in Radiant Lux
+
+Folded into Radiant Lux's own contents and photos (`src/content/catalogue.ts`)
+as the item that sets it apart from Grace Lux and Bloom Lux, per direct
+feedback that the ₦360,000 hamper needed a bigger, clearly differentiating
+item. It's still also offered as a standalone add-on for the other two
+hampers (`addOns`), unchanged.
+
 ## Going live
 
 1. Register `lustrebykal.com` and create the `admin@` mailbox.
@@ -93,7 +116,7 @@ that switch exists so the browser tests below can run against a production build
 
 ## Tests
 
-Three scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
+Four scripts drive a real browser (Python 3 with `pip install playwright`, using the installed Edge or Chrome). Start the site first, with `SITE_UNLOCK=1` so the site lock above doesn't answer 404.
 
 ```bash
 # 1. Full order flow, with email delivery faked locally
@@ -108,6 +131,9 @@ npm run test:launch-state
 
 # 3. Motion: rotating hamper photos, scrolling strip, reveals, reduced-motion
 npm run test:motion
+
+# 4. Seasonal gifting section: occasion chips, the composed WhatsApp/email message, nav/footer links
+npm run test:seasonal
 ```
 
 Screenshots and captured emails land in `tests/output/`. Both browser tests take

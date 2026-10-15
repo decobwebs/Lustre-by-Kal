@@ -27,6 +27,9 @@ export function Footer() {
           <Link href="/hampers#add-ons" className="hover:text-bronze-light">
             Add-ons
           </Link>
+          <Link href="/#seasonal" className="hover:text-bronze-light">
+            Seasonal gifts
+          </Link>
         </div>
 
         <div className="flex flex-col gap-3">
